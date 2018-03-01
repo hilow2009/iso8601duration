@@ -65,7 +65,9 @@ func FromString(dur string) (*Duration, error) {
 		case "year":
 			d.Years = val
 		case "month":
-			return nil, ErrNoMonth
+			if val != 0 {
+				return nil, ErrNoMonth
+			}
 		case "week":
 			d.Weeks = val
 		case "day":
